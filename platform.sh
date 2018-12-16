@@ -139,7 +139,7 @@ function platform_rock64() {
 }
 
 function platform_rockpro64() {
-    __default_cflags="-O2 -march=armv8.1-a+crc -mtune=cortex-a73.cortex-a53"
+    __default_cflags="-O2 -march=native"
     __default_cflags+=" -ftree-vectorize -funsafe-math-optimizations"
     # required for mali headers to define GL functions
     __default_cflags+=" -DGL_GLEXT_PROTOTYPES"
