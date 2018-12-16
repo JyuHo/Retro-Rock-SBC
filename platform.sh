@@ -139,16 +139,11 @@ function platform_rock64() {
 }
 
 function platform_rockpro64() {
-    if [[ rp_module_flags -eq !aarch64 ]]; then
-        __default_cflags="-O2 -march=armv8-a+crc -mtune=cortex-a53 -mfpu=neon-fp-armv8"
-        __platform_flags="arm armv8 neon kms gles"
-    else
-        __default_cflags="-O2 -march=native"
-        __platform_flags="aarch64 kms gles"
-    fi
+    __default_cflags="-O2 -march=armv8.1-a+crc -mtune=cortex-a73.cortex-a53"
     __default_cflags+=" -ftree-vectorize -funsafe-math-optimizations"
     # required for mali headers to define GL functions
     __default_cflags+=" -DGL_GLEXT_PROTOTYPES"
     __default_asflags=""
     __default_makeflags="-j2"
+    __platform_flags="aarch64 kms gles"
 }
